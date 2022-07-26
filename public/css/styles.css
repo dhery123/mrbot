@@ -1,0 +1,589 @@
+/* shared botkit ui styles */
+* {
+  box-sizing: border-box; }
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  background-color: #FFF;
+  font-family: 'helvetica', sans-serif; }
+
+.wrapper {
+  
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto; }
+  .wrapper:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.box {
+  border: 2px solid #CCC;
+  padding: 1rem calc(1rem - 2px);
+  margin-bottom: 1rem; }
+  .box:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .box h1,
+  .box h2,
+  .box h3 {
+    margin-top: 0; }
+
+footer {
+  
+  text-align: center; }
+
+
+  
+
+.hero {
+  text-align: center;
+  padding: 2rem; }
+  .hero h1 {
+    font-size: 4rem;
+    margin: 0; }
+
+a {
+  color: #a795ef; }
+
+.copyurl {
+  width: 100%;
+  font-size: 1.25rem; }
+
+div.input label {
+  font-weight: bold;
+  font-size: smaller; }
+
+.addon {
+  display: flex;
+  border: 1px solid #999;
+  border-radius: 6px;
+  padding: 5px;
+  background: #F0F0F0; }
+  .addon input,
+  .addon textarea {
+    flex-grow: 1;
+    border: 0;
+    background: transparent; }
+  .addon button {
+    flex-grow: 0;
+    background: transparent;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-weight: bold; }
+    .addon button.textarea {
+      align-self: flex-start;
+      padding: 0.5rem; }
+    .addon button:hover {
+      background: #FFF;
+      color: #a795ef; }
+
+div.hr {
+  border: 1px dashed #ccc;
+  width: 10%;
+  margin: 4rem auto;
+  height: 1px; }
+
+a.button {
+  border: 2px solid #a795ef;
+  font-weight: bold;
+  margin: 0;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+  transition: box-shadow 0.1s linear; }
+  a.button:hover {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); }
+
+/* chat client */
+#message_window {
+  background: #FFFFFF;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  /*height: 500px;
+  width: 320px;*/
+  height: 100%;
+  width: 100%;
+  /*margin: 2rem auto;*/
+  display: flex;
+  flex-direction: column;
+  font-family: 'helvetica', sans-serif; }
+  #message_window .disconnected {
+    background: #FFFFCC;
+    padding: 0.25rem; }
+  #message_window.connected .disconnected {
+    display: none; }
+  #message_window .offline {
+    display: none; }
+  #message_window.offline .disconnected {
+    display: none; }
+  #message_window.offline .offline {
+    background: #FF0000;
+    color: #FFF;
+    padding: 0.25rem;
+    display: block; }
+  #message_window .powered_by {
+    flex-shrink: 0;
+    text-align: center;
+    border-bottom: 1px solid #CCC;
+    font-size: 14px;
+    padding: 0.25rem;
+    color: #666; }
+    #message_window .powered_by a {
+      text-decoration: none;
+      color: #666; }
+    #message_window .powered_by img {
+      position: relative;
+      top: 2px; }
+  #message_window section {
+    flex-grow: 1;
+    flex-direction: column-reverse;
+    display: flex;
+    overflow-y: auto; }
+    #message_window section div div {
+      margin: 0.25rem;
+      clear: both; }
+  #message_window footer {
+    border-top: 1px solid #CCC;
+    padding: 0.25rem; }
+    #message_window footer input[type="text"] {
+      flex-grow: 1;
+      font-size: 1.038rem;
+      outline: none;
+      border: none; }
+    #message_window footer button {
+      width: 50px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      color: blue;
+      font-weight: bold; }
+  #message_window form {
+    display: flex;
+    margin: 0;
+    padding: 0.25rem; }
+  #message_window #message_template {
+    display: none; }
+  #message_window .message {
+    font-size: 14px;
+    padding: 0.5rem;
+    background: #F0F0F0;
+    color: #333;
+    border-radius: 5px;
+    width: auto;
+    display: inline-block;
+    max-width: 75%; }
+  #message_window .file_attachment {
+    background: #F0F0F0;
+    color: #333;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 75%; }
+    #message_window .file_attachment img {
+      max-width: 100%;
+      display: block; }
+  #message_window .button_message {
+    margin: 1rem 0;
+    border-radius: 4px;
+    border-color: orange;
+    border-style: solid;
+    color: orange;
+    border-width: 1px;
+    padding: 0.25rem 1rem;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    display: block; }
+  #message_window .message p {
+    margin-top: 0;
+    margin-bottom: 0.5rem; }
+  #message_window .message p:last-child {
+    margin-bottom: 0; }
+  #message_window .message.outgoing {
+    float: right;
+    background: #a795ef;
+    color: white; }
+  #message_window #message_replies {
+    text-align: center;
+    overflow-x: auto;
+    flex-shrink: 0;
+    -webkit-overflow-scrolling: touch;
+    /* Lets it scroll lazy */ }
+    #message_window #message_replies ul {
+      list-style-type: none;
+      margin: 0px auto;
+      padding: 0; }
+      #message_window #message_replies ul li {
+        display: inline-block;
+        margin: 0.5rem;
+        margin-left: 0; }
+    #message_window #message_replies a {
+      text-decoration: none;
+      display: block;
+      border: 1px solid #a795ef;
+      color: #a795ef;
+      border-radius: 16px;
+      padding: 0.25rem 1rem;
+      font-size: 14px;
+      cursor: pointer; }
+      #message_window #message_replies a:hover {
+        background: #a795ef;
+        color: #FFF; }
+
+/* typing indicator CSS based on code by Joseph Fusco -> https://codepen.io/fusco/pen/XbpaYv */
+.typing-indicator {
+  display: table;
+  margin: 0 auto;
+  position: relative; }
+  .typing-indicator span {
+    height: 5px;
+    width: 5px;
+    float: left;
+    margin: 0 1px;
+    background-color: #333;
+    display: block;
+    border-radius: 50%;
+    opacity: 0.4; }
+    .typing-indicator span:nth-of-type(1) {
+      animation: 1s blink infinite 0.3333s; }
+    .typing-indicator span:nth-of-type(2) {
+      animation: 1s blink infinite 0.6666s; }
+    .typing-indicator span:nth-of-type(3) {
+      animation: 1s blink infinite 0.9999s; }
+
+@keyframes blink {
+  50% {
+    opacity: 1; } }
+/* special styles for homepage */
+#home {
+  position: relative;
+  max-width: 1100px;
+  margin: auto; }
+  #home:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+#homepage_bot {
+  width: 400px;
+  height: 450px;
+  float: left;
+  border: 5px solid #333;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); }
+  #homepage_bot iframe {
+    border: 0;
+    height: 100%;
+    width: 100%; }
+
+#welcome {
+  margin-left: 440px; }
+
+        /* Styling the Form (Color, Padding, Shadow) */
+        form {
+          background-color: #fff;
+          max-width: 500px;
+          margin: 50px auto;
+          padding: 30px 20px;
+         
+      }
+
+      /* Styling form-control Class */
+      .form-control {
+          text-align: left;
+          margin-bottom: 25px;
+      }
+
+      /* Styling form-control Label */
+      .form-control label {
+          display: block;
+          margin-bottom: 10px;
+      }
+
+      /* Styling form-control input,
+      select, textarea */
+      .form-control input,
+      .form-control select,
+      .form-control textarea {
+          border: 1px solid #777;
+          border-radius: 2px;
+          font-family: inherit;
+          padding: 10px;
+          display: block;
+          width: 95%;
+      }
+
+      /* Styling form-control Radio
+      button and Checkbox */
+      .form-control input[type="radio"],
+      .form-control input[type="checkbox"] {
+          display: inline-block;
+          width: auto;
+      }
+
+      /* Styling Button */
+    
+      .navbar {
+          background-color: #BC6FF1 !important;
+      }
+      .navbar li a, .navbar .navbar-brand {
+      color: rgb(255, 255, 255) !important;
+      }
+      .navbar-nav li a:hover, .navbar-nav li.active a {
+      
+color: #ffffff !important;
+background-color: #892CDC !important;
+}
+
+      h1 {
+        display: block;
+        font-size: 30px;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
+       
+        font-weight: bold;
+        color: #DFF6FF;
+      }
+      p{
+        padding: 0,
+        
+      }
+/*# sourceMappingURL=styles.css.map */
+
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+  color: #004e66;
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+p {
+  font-size: 19px;
+}
+h2,
+h3,
+a {
+  color: #004e66;
+}
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+}
+hr {
+  color: white;
+}
+
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Navigation ---- */
+
+.name {
+  font-size: 1.35em;
+  margin: 0;
+}
+.main-nav {
+  margin-top: 5px;
+}
+.name a,
+.main-nav a {
+  text-align: center;
+  display: block;
+  padding: 10px 15px;
+}
+.main-nav a {
+  font-size: .95em;
+  color: #BC6FF1;
+  text-transform: uppercase;
+}
+.main-nav a:hover {
+  color: #892CDC;
+}
+
+/* ---- Layout Containers ---- */
+
+.main-header {
+  padding-top: .35em;
+  padding-bottom: .5em;
+}
+.banner,
+.main-footer {
+  text-align: center;
+}
+.banner {
+  color: white;
+  background: #892CDC;
+  padding: 3em 0;
+  margin-bottom: 50px;
+}
+.main-footer {
+  background: #d9e1e8;
+  padding: 1em 0;
+  margin-top: 50px;
+}
+.valleys-content,
+.valley-content {
+  margin: 0 auto;
+}
+
+/* ---- Page Elements ---- */
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  overflow: hidden;
+  background: #52057B;
+  margin-bottom: 20px;
+}
+.headline {
+  margin-bottom: 0;
+
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+  .main-header,
+  .main-nav {
+    display: flex;
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-header,
+  .valleys-content,
+  .valley-content,
+  .footer-inner{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1150px;
+  }
+  .tagline {
+    font-size: 1.4em;
+  }
+
+}
+
+
+@media (min-width: 1025px) {
+
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+
+/* =================================
+  Valleys
+==================================== */
+
+.valley-card {
+  background-color: #d9e1e8;
+  margin: 30px 10px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.valley-img {
+  height: 160px;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #52057B;
+  margin-bottom: 20px;
+}
+
+.valley-button {
+  background-color: #D81159;
+  font-size: 13px;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.valley-button:hover {
+  background-color: #004e66;
+}
+
+/* ---- Flexbox ---- */
+
+.valleys-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.valleys-content {
+  flex: 1;
+}
+
+.valley-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 30%;
+}
+
+.valley-button {
+  margin-top: auto;
+}
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+  .valley-card {
+    margin: 10px;
+  }
+
+}
+
+@media (min-width: 1025px) {
+
+}
+
+.col-md-6{
+
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 50px;
+  background-color: rgb(241, 241, 241)  !important;
+}
