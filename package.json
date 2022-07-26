@@ -2,8 +2,8 @@
   "name": "botkit-starter-web",
   "version": "0.0.2",
   "engines" : { 
-    "npm" : ">=6.12.0",
-    "node" : ">=12.13.0"
+    "npm" : ">=6.x",
+    "node" : ">=12.x"
   },
   "description": "A starter kit for building a custom bot for your website with Botkit Studio",
   "main": "bot.js",
