@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "engines" : { 
     "npm" : ">=6.x",
-    "node" : ">=12.x"
+    "node" : ">=14.x"
   },
   "description": "A starter kit for building a custom bot for your website with Botkit Studio",
   "main": "bot.js",
