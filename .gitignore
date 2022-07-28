@@ -1,6 +1,14 @@
-.env
-.data
+
 node_modules
-components/routes/_*
-.sass-cache/
+
+# Node build artifacts
+npm-debug.log
+
+# Local development
+*.env
+*.dev
 .DS_Store
+
+# Docker
+Dockerfile
+docker-compose.yml
