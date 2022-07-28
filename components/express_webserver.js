@@ -23,11 +23,14 @@ module.exports = function(controller) {
 
     var server = http.createServer(webserver);
 
-    server.listen(process.env.PORT || 3000, null, function() {
+    webserver.set('port',process.env.PORT || 3000, null, function() {
 
         debug('Express webserver configured and listening at http://localhost:' + process.env.PORT || 3000);
 
     });
+    server.listen(webserver.get('port'), ()=>{
+        console.log('server on port ');
+    })
 
     // import all the pre-defined routes that are present in /components/routes
     var normalizedPathToRoutes = require('path').join(__dirname, 'routes');
