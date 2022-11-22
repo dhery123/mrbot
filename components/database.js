@@ -6,7 +6,7 @@ var debug = require('debug')('botkit:db');
 module.exports = function(config) {
 
 
-  mongoose.connect(process.env.MONGO_URI, {
+  mongoose.connect('mongodb+srv://Dhery:computadora@cluster0.quh68.mongodb.net/botkit', {
     useNewUrlParser: true, // new parameters
     useUnifiedTopology: true
   });

@@ -47,13 +47,13 @@ const transporter = nodemailer.createTransport({
         </head>
         
         <div id="email___content">
-            <img src="https://i.imgur.com/eboNR82.png" alt="">
+            <img src="https://i.imgur.com/Tub75xI.jpg" alt="">
             <h2>Hola ${ nombre }</h2>
-            <p>Para confirmar tu cuenta, ingresa al siguiente enlace</p>
+            <p>Para registrar su cita ingrese al siguiente enlace.</p>
             <a
-                href="http://localhost:3000/confirm/${ token }"
+                href="http://localhost:3000/citas"
                 target="_blank"
-            >Confirmar Cuenta</a>
+            >Registrar cita</a>
         </div>
       `;
   }
@@ -116,11 +116,7 @@ const signUp = async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
-        return res.json({
-            success: false,
-            msg: 'Error al registrar usuario'
-        });
+        return res.redirect('/hecho');
     }
 }
 
@@ -132,12 +128,9 @@ const confirm = async (req, res) => {
        
        // Verificar la data
        const data = await getTokenData(token);
-
+        
        if(data === null) {
-            return res.json({
-                success: false,
-                msg: 'Error al obtener data'
-            });
+        return res.redirect('/hecho');
        }
 
     
@@ -164,14 +157,12 @@ const confirm = async (req, res) => {
        await user.save();
 
        // Redireccionar a la confirmación
-       return res.redirect('/confirm.html');
+       
         
     } catch (error) {
-        console.log(error);
-        return res.json({
-            success: false,
-            msg: 'Error al confirmar usuario'
-        });
+        
+        return res.redirect('/hecho');
+       
     }
 }
 

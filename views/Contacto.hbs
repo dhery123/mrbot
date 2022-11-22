@@ -1,6 +1,8 @@
 <div class="box">
-
     <h2>CONTACTANOS</h2>
+    <p>REGISTRE SU CITA CON NOSOTROS</p>
+    <button id="btn-abrir-popup" class="btn-abrir-popup">Registrar cita</button>
+    
     <p>
         Nos puede encontrar en 
 
@@ -62,7 +64,21 @@
 
 
 </div>
-
+<div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+				<h3>REGISTRAR CITA</h3>
+				<h4>Le enviaremos un correo, con el formulario para el registro de cita.</h4>
+				<form id="form" action="/citas/mail" method="POST">
+					<div class="contenedor-inputs">
+						<input type="text" name="nombre" placeholder="Ingrese su nombre" class="form-control" placeholder="Nombre">
+						<input type="email" name="email" id="email" required="obligatorio" placeholder="Escribe tu Email">
+					</div>
+					<input type="submit" class="btn-submit" value="Enviar">
+				</form>
+			</div>
+</div>
+<script src="popup.js"></script>
 
 
 <div id="embedded_messenger">

@@ -21,13 +21,14 @@ env(__dirname + '/.env');
 
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
-
+var uri = "mongodb+srv://Dhery:computadora@cluster0.quh68.mongodb.net/botkit";
 var bot_options = {
     replyWithTyping: true,
 };
 
 // Use a mongo database if specified, otherwise store in a JSON file local to the app.
 // Mongo is automatically configured when deploying to Heroku
+
 if (process.env.MONGO_URI) {
   // create a custom db access method
   var db = require(__dirname + '/components/database.js')({});

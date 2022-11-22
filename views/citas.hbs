@@ -44,29 +44,49 @@
             </select>
             <br>
             <div class="form-control">
-            <label for="start">Agendar Cita:</label> 
+            <ul for="start">Agendar Cita:</ul> 
 
-           <input type="date" class="form-control form-control-sm" id="FechaActual" name="fecha_cita">
+           <input type="date" class="form-control form-control-sm" id="fecha_cita" name="fecha_cita">
            <script>
                 const now = new Date()
                 const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
-                document.getElementById("FechaActual").value = now.toJSON().slice(0,10);
-                document.getElementById("FechaActual").min = now.toISOString().split("T")[0];
+                const minDate = new Date(today)
+                minDate.getDate(minDate.getDate())
+                document.getElementById("fecha_cita").min = minDate.toISOString().split("T")[0];
                 const maxDate = new Date(today)
                 maxDate.setMonth(maxDate.getMonth() + 1)
                 
-                document.getElementById("FechaActual").max = maxDate.toJSON().slice(0,10)
+                document.getElementById("fecha_cita").max = maxDate.toJSON().slice(0,10)
                 
             </script>
             
-            <select name="hora_cita">
-                <option value="2:00pm">2:00p.m.</option>
-                <option value="3:00pm">3:00p.m.</option>
-                <option value="4:00pm">4:00p.m.</option>
-                <option value="4:00pm">5:00p.m.</option>
-                <option value="6:00pm">6:00p.m.</option>
-            </select>
+   
+             <div class="box" id="box" name="box">
+                <input type="radio" name="hora" id="option-1" value="2:00pm">
+                <input type="radio" name="hora" id="option-2" value="3:00pm">
+                <input type="radio" name="hora" id="option-3" value="4:00pm">
+                <input type="radio" name="hora" id="option-4" value="5:00pm">
+                <input type="radio" name="hora" id="option-5" value="6:00pm">
+                
+                <label for="option-1" class="option-1" id="uno">
+                 
+                </label>
+                <label for="option-2" class="option-2" id="dos">
+
+                </label>
+                <label for="option-3" class="option-3" id="tres">
+                  
+                </label>
+                <label for="option-4" class="option-4" id="cuatro">
+       
+                </label>
+                <label for="option-5" class="option-5" id="cinco">
+       
+                </label>
+                </div>          
             
+            <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+            <script src="/calendario.js" type= "module" charset="utf-8"></script>
            
             </div>
         </div>
@@ -74,36 +94,12 @@
   
         <!-- Multi-line Text Input Control -->
         <div class="form-group" style="text-align: center; ">
-        <button class="btn btn-primary btn-block" type="submit" style="height:40px; width:100%">
+        <button class="btn btn-primary btn-block" type="submit" style="height:40px; width:100%" onclick="alert('Registro exitoso');" id="refresh">
             Enviar
         </button>
+        
         </div>
     </form>
-   
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
-<script>
-    let date = document.querySelector('date');
-    let select = document.querySelector('select');
-
-    select.addEventListener('change', setWeather);
-
-</script>
-<script language="JavaScript">
-var fecha = new Date()
-var dia = fecha.getDay()
-var dias = new Array('domingo','lunes','martes','miercoles','juev es','viernes','sabado')
-function escribeImagen()
-{
-document.write ('<img src="' + dias[dia] + '.jpg">')
-Swal.fire({title: 'Error!',text: 'Do you want to continue',icon: 'error',confirmButtonText: 'Cool'})
-
-}
-</script>
-
-<!-- Multi-line Text  <script language="JavaScript">escribeImagen()</script> Input Control -->
-
-
 
            
         

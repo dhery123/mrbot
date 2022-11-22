@@ -5,8 +5,8 @@ var debug = require('debug')('botkit:webserver');
 var http = require('http');
 var fs = require('fs');
 var hbs = require('express-hbs');
-
-
+const Form = require('./dataform');
+const { data } = require('node-env-file');
 module.exports = function(controller) {
 
 
@@ -28,9 +28,10 @@ module.exports = function(controller) {
         debug('Express webserver configured and listening at http://localhost:' + process.env.PORT || 3000);
 
     });
-    server.listen(webserver.get('port'), ()=>{
+    const servicio = server.listen(webserver.get('port'), ()=>{
         console.log('server on port ');
     })
+   
 
     // import all the pre-defined routes that are present in /components/routes
     var normalizedPathToRoutes = require('path').join(__dirname, 'routes');
@@ -39,10 +40,42 @@ module.exports = function(controller) {
             require('./routes/' + file)(webserver, controller);
         });
     }
-
+   
     controller.webserver = webserver;
     controller.httpserver = server;
+    const SocketIO = require('socket.io');
+    const io = SocketIO(servicio);
+    
+    
+    io.on('connection', (socket)=>{
+       
+        const emitDate = async() => {
+            const Forms = await Form.find();
+            io.emit('server:loadForm',Forms)
+        }
+        emitDate()
 
+        const Query = async () => {
+            console.log('hola');
+            socket.on('date', async (data) => {
+                
+                const Forms = await Form.find({fecha_cita:data.fecha_cita});
+                console.log(Forms)
+                io.emit('server:Query',Forms)
+              });
+              
+        
+
+       
+            
+        }
+        Query()
+            
+        
+    });  
+
+    
     return webserver;
+    
 
 };

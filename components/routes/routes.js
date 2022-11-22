@@ -55,7 +55,7 @@ webserver.get('/Contacto', function(req,res) {
    
 });
 
-webserver.get('/errorFecha', function(req,res) {
+webserver.get('/hecho', function(req,res) {
 
   res.render('error', {
     layout: 'layouts/default',
@@ -69,30 +69,30 @@ webserver.get('/errorFecha', function(req,res) {
 
 
 webserver.get('/citas', async(req,res)=> {
-  
-
-  //const forms = await Form.find().lean()
-  
-  //console.log(forms)
-  
+  const datess = Form(req.body);
+  const forms = await Form.findOne({fecha_cita:'2022-10-25'});
   res.render('citas', {
     layout: 'layouts/default',
     base_url: req.hostname,
-    //formulario: forms
+    forms
   });
-
- 
-
 });
+
+webserver.post('/citas/new',async (req, res) => {
+  console.log(req.body.fecha_cita);
+  
+  FormController.signUp
+  const form = Form(req.body);
+  
+  const formSaved = await form.save();
+
+  
+}
+);
 webserver.post(
-  '/citas/new',
+  '/citas/mail',
   [],
   FormController.signUp
-);
-webserver.get(
-  '/confirm/:token',
-  [],
-  FormController.confirm
 );
 
 

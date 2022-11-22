@@ -166,3 +166,31 @@ print("Proceso finalizado")
 
 
 #browser.quit()
+
+
+
+
+                  
+            <div class="box" id="box" name="box">
+                <input type="radio" name="2:00pm" id="option-1">
+                <input type="radio" name="3:00pm" id="option-2">
+                <input type="radio" name="4:00pm" id="option-3">
+                <input type="radio" name="5:00pm" id="option-4">
+                <input type="radio" name="6:00pm" id="option-5">
+                
+                <label for="option-1" class="option-1" id="uno">
+                 
+                </label>
+                <label for="option-2" class="option-2" id="dos">
+
+                </label>
+                <label for="option-3" class="option-3" id="tres">
+                  
+                </label>
+                <label for="option-4" class="option-4" id="cuatro">
+       
+                </label>
+                <label for="option-5" class="option-5" id="cinco">
+       
+                </label>
+                </div>          
