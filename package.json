@@ -8,7 +8,7 @@
   "description": "A starter kit for building a custom bot for your website with Botkit Studio",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "nodemon bot.js"
   },
   "dependencies": {
     "alert": "^5.1.1",
